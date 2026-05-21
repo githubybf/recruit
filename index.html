@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2 h-80 md:h-[450px] bg-slate-100 rounded-[50px] shadow-2xl overflow-hidden border-8 border-white transform lg:rotate-2">
-                    <img src="sorugente.avif" alt="Clinic Interior" class="w-full h-full object-cover">
+                    <img src="sorgente.avif" alt="Clinic Interior" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
@@ -197,63 +197,52 @@
             </div>
         </div>
 
-        <div id="contact" class="text-center bg-slate-900 text-white rounded-[60px] p-10 md:p-20 shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+        <div id="contact" class="text-center bg-slate-900 text-white rounded-[40px] md:rounded-[60px] p-8 md:p-20 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 bg-orange-500/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+            <h4 class="text-3xl md:text-4xl font-black mb-8 md:mb-12 italic uppercase tracking-widest text-white">Apply & Inquiry</h4>
             
-            <h4 class="text-4xl font-black mb-12 italic uppercase tracking-widest text-white text-center">Apply & Inquiry</h4>
-            
-            <div class="flex flex-col md:flex-row justify-center items-center gap-10 mb-20">
-                <a href="tel:0455010708" class="group flex items-center gap-6 bg-orange-500 text-white px-12 py-8 rounded-full font-black text-2xl md:text-4xl shadow-2xl hover:bg-orange-400 transition transform hover:scale-105 btn-shadow">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>045-501-0708</span>
+            <div class="flex flex-col items-center gap-6 mb-12">
+                <a href="tel:0455010708" class="w-full md:w-auto group flex items-center justify-center gap-4 bg-orange-500 text-white px-8 py-5 md:px-12 md:py-8 rounded-full font-black text-xl md:text-5xl shadow-2xl hover:bg-orange-400 transition transform hover:scale-105 btn-shadow">
+                    <i class="fa-solid fa-phone"></i><span>045-501-0708</span>
                 </a>
+                <p class="text-orange-500 font-bold text-sm md:text-xl animate__animated animate__pulse animate__infinite">
+                    <i class="fa-solid fa-eye mr-2"></i>クリニック見学も随時受け付けております。<br class="md:hidden">まずはお気軽にお電話ください！
+                </p>
             </div>
 
-            <button onclick="toggleForm()" id="form-btn" class="group inline-flex items-center gap-4 text-slate-400 hover:text-white transition font-black uppercase tracking-[0.3em] text-base mb-8">
-                <i class="fa-solid fa-envelope text-orange-500 text-xl"></i>
-                <span id="btn-text">メールフォームを表示</span>
+            <button onclick="toggleForm()" id="form-btn" class="group inline-flex items-center gap-3 text-slate-400 hover:text-white transition font-black uppercase tracking-[0.2em] text-xs md:text-base mb-6">
+                <i class="fa-solid fa-envelope text-orange-500 text-base md:text-xl"></i><span id="btn-text">メールでお問い合わせ</span>
                 <i class="fa-solid fa-chevron-down transition-transform duration-500" id="chevron"></i>
             </button>
 
             <div id="contact-form-container" class="max-h-0 overflow-hidden transition-all duration-700 ease-in-out opacity-0">
-                <div class="max-w-2xl mx-auto mt-10 bg-white/5 p-8 md:p-14 rounded-[50px] border border-white/10 text-center backdrop-blur-md shadow-inner">
-                    <p class="text-slate-300 mb-10 font-bold leading-loose text-lg">
-                        見学のご希望や、条件に関するお問い合わせは、<br class="hidden md:block">
-                        以下のボタンよりご連絡ください。<br>
-                        <span class="text-orange-500 text-sm">※件名と本文の雛形が自動で入力されます</span>
+                <div class="max-w-2xl mx-auto mt-6 bg-white/5 p-6 md:p-14 rounded-[30px] border border-white/10 text-center backdrop-blur-md shadow-inner">
+                    <p class="text-slate-300 mb-8 font-bold text-sm md:text-lg">
+                        見学のご希望や、採用に関するご質問は、<br>以下のボタンよりご連絡ください。
                     </p>
-
                     <a href="mailto:sorujente.cl@gmail.com?subject=%E3%80%90%E6%B1%82%E4%BA%BA%E7%89%B9%E8%A8%AD%E3%80%91%E6%8E%A1%E7%94%A8%E3%83%BB%E8%A6%8B%E5%AD%A6%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B&body=%E3%82%BD%E3%83%AB%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%86%E6%95%B4%E5%BD%A2%E5%A4%96%E7%A7%91%20%E6%8E%A1%E7%94%A8%E6%8B%85%E5%BD%93%E8%80%85%E6%A7%98%0D%0A%0D%0A%E2%96%A0%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0D%0A%E2%96%A0%E5%B8%8C%E6%9C%9B%E8%81%B7%E7%A8%AE%EF%BC%9A%5B%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95%E5%A3%AB%20%2F%20%E3%83%AA%E3%83%8F%E3%83%93%E3%83%AA%E5%8A%A9%E6%89%8B%5D%0D%0A%E2%96%A0%E8%A6%8B%E5%AD%A6%E5%B8%8C%E6%9C%9B%EF%BC%9A%5B%E3%81%82%E3%82%8A%20%2F%20%E3%81%AA%E3%81%97%5D%0D%0A%E2%96%A0%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%EF%BC%9A" 
-                       class="w-full bg-white text-slate-900 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-center block hover:bg-orange-500 hover:text-white transition duration-500 shadow-2xl text-xl">
-                        <i class="fa-solid fa-paper-plane mr-3"></i> メールソフトを起動して送信
+                       class="w-full bg-white text-slate-900 py-5 rounded-2xl font-black uppercase text-center block hover:bg-orange-500 hover:text-white transition duration-500 shadow-2xl text-base md:text-xl">
+                        メールソフトを起動して送信
                     </a>
                 </div>
             </div>
-            <p class="mt-12 text-slate-500 font-bold uppercase tracking-[0.5em] text-xs">Recruitment Manager: Sorgente Clinic</p>
+            <p class="mt-8 md:mt-12 text-slate-500 font-bold uppercase tracking-[0.3em] text-[10px]">Recruitment Manager: Sorgente Clinic</p>
         </div>
-
     </main>
 
-    <footer class="py-12 text-center text-slate-400 text-[11px] tracking-[0.4em] uppercase font-bold border-t border-slate-100">
-        © 2026 Sorgente Orthopedics Clinic.
-    </footer>
+    <footer class="py-12 text-center text-slate-400 text-[10px] tracking-[0.4em] uppercase font-bold border-t border-slate-100">© 2026 Sorgente Orthopedics Clinic.</footer>
 
     <script>
         function toggleForm() {
             const container = document.getElementById('contact-form-container');
             const chevron = document.getElementById('chevron');
             const btnText = document.getElementById('btn-text');
-
             if (container.style.maxHeight === '0px' || container.style.maxHeight === '') {
-                container.style.maxHeight = container.scrollHeight + 'px';
-                container.style.opacity = '1';
-                chevron.style.transform = 'rotate(180deg)';
-                btnText.innerText = 'フォームを閉じる';
+                container.style.maxHeight = container.scrollHeight + 'px'; container.style.opacity = '1';
+                chevron.style.transform = 'rotate(180deg)'; btnText.innerText = 'フォームを閉じる';
             } else {
-                container.style.maxHeight = '0px';
-                container.style.opacity = '0';
-                chevron.style.transform = 'rotate(0deg)';
-                btnText.innerText = 'メールフォームを表示';
+                container.style.maxHeight = '0px'; container.style.opacity = '0';
+                chevron.style.transform = 'rotate(0deg)'; btnText.innerText = 'メールでお問い合わせ';
             }
         }
     </script>
