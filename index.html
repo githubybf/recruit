@@ -18,102 +18,181 @@
             font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif;
             line-height: 1.8;
         }
-        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .section-title { background: linear-gradient(to right, #f97316, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
-        .nav-link { transition: 0.3s; }
-        .nav-link:hover { color: var(--brand-orange); }
-        .btn-shadow { box-shadow: 0 15px 30px -10px rgba(249, 115, 22, 0.5); }
-        /* モバイルでのテーブル崩れ防止 */
-        .table-header { min-width: 140px; }
+        .glass {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .section-title {
+            background: linear-gradient(to right, #f97316, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+        .btn-shadow { box-shadow: 0 15px 30px -10px rgba(249,115,22,0.5); }
+
+        /* ===== RESPONSIVE TABLE ===== */
+        /* Desktop: normal two-column table */
+        .info-table { width: 100%; border-collapse: collapse; }
+        .info-table th,
+        .info-table td {
+            padding: 1.25rem 2rem;
+            border-bottom: 1px solid #fff7ed;
+            vertical-align: top;
+        }
+        .info-table th {
+            background: rgba(249,115,22,0.07);
+            font-weight: 900;
+            color: #ea580c;
+            font-style: italic;
+            white-space: nowrap;
+            width: 160px;
+        }
+        .info-table td {
+            font-weight: 500;
+            color: #475569;
+        }
+
+        /* Mobile: stack label above value */
+        @media (max-width: 640px) {
+            .info-table,
+            .info-table tbody,
+            .info-table tr,
+            .info-table th,
+            .info-table td {
+                display: block;
+                width: 100%;
+            }
+            .info-table tr {
+                border-bottom: 1px solid #fff7ed;
+            }
+            .info-table th {
+                padding: 0.85rem 1.25rem 0.25rem;
+                font-size: 0.75rem;
+                letter-spacing: 0.05em;
+                white-space: normal;
+                width: 100%;
+                background: rgba(249,115,22,0.07);
+                border-bottom: none;
+            }
+            .info-table td {
+                padding: 0.25rem 1.25rem 0.85rem;
+                border-bottom: none;
+            }
+            .glass {
+                border-radius: 20px;
+            }
+        }
+
+        /* Salary big number: smaller on mobile */
+        .salary-big {
+            font-weight: 900;
+            font-size: clamp(1.4rem, 5vw, 1.875rem);
+            color: #1e293b;
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 px-6 py-4 flex justify-between items-center shadow-sm">
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-bold shadow-lg">
-                <i class="fa-solid fa-stethoscopes"></i>
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 px-4 py-3 flex justify-between items-center shadow-sm">
+        <div class="flex items-center gap-2">
+            <div class="w-9 h-9 bg-slate-900 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shrink-0">
+                <i class="fa-solid fa-plus text-sm"></i>
             </div>
             <div class="flex flex-col">
-                <span class="font-bold text-slate-900 leading-tight tracking-tighter">ソルジェンテ整形外科</span>
-                <span class="text-[10px] text-orange-500 font-bold uppercase tracking-widest leading-tight">Spine & Regenerative Medicine</span>
+                <span class="font-bold text-slate-900 leading-tight tracking-tighter text-sm md:text-base">ソルジェンテ整形外科</span>
+                <span class="text-[9px] text-orange-500 font-bold uppercase tracking-widest leading-tight hidden sm:block">Spine &amp; Regenerative Medicine</span>
             </div>
         </div>
-        <div class="font-black text-xl italic tracking-tighter text-slate-900 uppercase">Recruit <span class="text-orange-500">2026 求人特設</span></span></div>
+        <div class="font-black text-sm md:text-xl italic tracking-tighter text-slate-900 uppercase whitespace-nowrap">
+            求人特設 <span class="text-orange-500">2026</span>
+        </div>
     </nav>
 
-    <main class="pt-32 pb-20 px-4 md:px-8 max-w-6xl mx-auto">
-        <div class="text-center mb-16 animate__animated animate__fadeIn">
-            <h1 class="text-4xl md:text-7xl font-black mb-8 tracking-tighter leading-tight text-slate-900">
+    <main class="pt-28 pb-20 px-4 md:px-8 max-w-6xl mx-auto">
+
+        <!-- Hero -->
+        <div class="text-center mb-12 animate__animated animate__fadeIn">
+            <h1 class="font-black mb-6 tracking-tighter leading-tight text-slate-900"
+                style="font-size: clamp(1.8rem, 8vw, 4.5rem);">
                 あなたの専門性を、<br><span class="text-orange-500 italic">「動き」の源泉</span>に。
             </h1>
         </div>
 
-        <div class="glass p-8 md:p-16 mb-24 relative overflow-hidden">
-            <div class="relative z-10 flex flex-col lg:flex-row gap-12 items-center">
-                <div class="lg:w-1/2 space-y-8">
-                    <h2 class="text-4xl font-black text-slate-900">「治る」のその先にある、<br>理想の「動き」を支える。</h2>
-                    <p class="text-lg leading-loose font-medium text-slate-600">
+        <!-- Intro Card -->
+        <div class="glass p-6 md:p-16 mb-16 relative overflow-hidden">
+            <div class="relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+                <div class="lg:w-1/2 space-y-6">
+                    <h2 class="font-black text-slate-900 leading-snug"
+                        style="font-size: clamp(1.3rem, 4.5vw, 2.25rem);">
+                        「治る」のその先にある、<br>理想の「動き」を支える。
+                    </h2>
+                    <p class="text-base leading-loose font-medium text-slate-600">
                         当院は「痛み」を取り除くだけでなく、その先の「動き」を支えることを使命としています。一般整形のみならず、脊椎疾患の周術期や再生医療など、当院ならではの症例も豊富です。<br><br>
                         医師をはじめ、向上心のある方といっしょに成長を目指す。職種に関わらず対等に意見を出し合える環境を整えています。勉強やキャリアアップは当院が全力で支援します。私たちと共に、医療人としてもう一歩先へ成長しませんか。
                     </p>
-                    <div class="pt-6 border-t border-slate-100">
-                        <p class="font-black text-2xl italic text-slate-900">Sorgente Orthopedics</p>
-                        <p class="text-sm font-bold text-orange-500 tracking-widest uppercase">Specialist of Spine Surgery Team</p>
+                    <div class="pt-4 border-t border-slate-100">
+                        <p class="font-black text-xl italic text-slate-900">Sorgente Orthopedics</p>
+                        <p class="text-xs font-bold text-orange-500 tracking-widest uppercase">Specialist of Spine Surgery Team</p>
                     </div>
                 </div>
-                <div class="w-full lg:w-1/2 h-80 md:h-[450px] bg-slate-100 rounded-[50px] shadow-2xl overflow-hidden border-8 border-white transform lg:rotate-2">
+                <div class="w-full lg:w-1/2 rounded-[30px] md:rounded-[50px] shadow-2xl overflow-hidden border-4 md:border-8 border-white lg:rotate-2"
+                     style="height: clamp(220px, 50vw, 450px);">
                     <img src="sorgente.avif" alt="Clinic Interior" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
 
-        <h3 class="text-3xl font-black text-center mb-12 section-title italic uppercase tracking-widest">理学療法士　Physical Therapist</h3>
-        <div class="glass overflow-hidden shadow-2xl mb-24">
+        <!-- PT Section -->
+        <h3 class="text-2xl md:text-3xl font-black text-center mb-8 section-title italic uppercase tracking-widest">理学療法士　Physical Therapist</h3>
+        <div class="glass overflow-hidden shadow-2xl mb-20">
             <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
+                <table class="info-table">
                     <tbody>
-                        <tr class="border-b border-orange-50">
-                            <th class="p-6 md:p-8 bg-orange-50/50 table-header font-black text-orange-600 italic">募集人数</th>
-                            <td class="p-6 md:p-8 font-black text-xl text-slate-800">2 〜 3名</td>
+                        <tr>
+                            <th>募集人数</th>
+                            <td class="font-black text-xl text-slate-800">2 〜 3名</td>
                         </tr>
-                        <tr class="border-b border-orange-50">
-                            <th class="p-6 md:p-8 bg-orange-50/50 table-header font-black text-orange-600 italic">入職時期</th>
-                            <td class="p-6 md:p-8 font-bold text-lg text-slate-800 italic">随時（応相談）</td>
+                        <tr>
+                            <th>入職時期</th>
+                            <td class="font-bold text-lg text-slate-800 italic">随時（応相談）</td>
                         </tr>
-                        <tr class="border-b border-orange-50">
-                            <th class="p-6 md:p-8 bg-orange-50/50 table-header font-black text-orange-600 italic">雇用形態</th>
-                            <td class="p-6 md:p-8 font-bold text-lg text-slate-800">正社員 / パート・アルバイト</td>
+                        <tr>
+                            <th>雇用形態</th>
+                            <td class="font-bold text-lg text-slate-800">正社員 / パート・アルバイト</td>
                         </tr>
-                        <tr class="border-b border-orange-50">
-                            <th class="p-6 md:p-8 bg-orange-50/50 table-header font-black text-orange-600 italic">仕事内容</th>
-                            <td class="p-6 md:p-8 leading-loose font-medium text-slate-600">
+                        <tr>
+                            <th>仕事内容</th>
+                            <td>
                                 外来患者様への運動療法・リハビリテーション業務全般、脊椎疾患の機能評価、再生医療後のフォローアップリハ等<br>
-                                <a href="https://www.pt-ot-st.net/index.php/recruit/detail/15970/preview" target="_blank" class="inline-flex items-center gap-2 mt-4 text-orange-500 font-bold hover:text-orange-600 transition underline">
+                                <a href="https://www.pt-ot-st.net/index.php/recruit/detail/15970/preview" target="_blank"
+                                   class="inline-flex items-center gap-2 mt-3 text-orange-500 font-bold hover:text-orange-600 transition underline text-sm">
                                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                    詳細はこちらをご参照ください（PT-OT-ST.NET）
+                                    詳細はこちら（PT-OT-ST.NET）
                                 </a>
                             </td>
                         </tr>
-                        <tr class="border-b border-orange-50">
-                            <th class="p-6 md:p-8 bg-orange-50/50 table-header font-black text-orange-600 italic">給与</th>
-                            <td class="p-6 md:p-8 text-slate-800">
-                                <p class="font-black text-3xl">月給 280,000円 〜</p>
+                        <tr>
+                            <th>給与</th>
+                            <td>
+                                <p class="salary-big">月給 280,000円 〜</p>
                                 <p class="text-sm font-bold text-slate-400 mt-2">※諸手当込。経験・能力を考慮し優遇いたします。<br>パート：時給 2,000円〜</p>
                             </td>
                         </tr>
-                        <tr class="border-b border-orange-50">
-                            <th class="p-6 md:p-8 bg-orange-50/50 table-header font-black text-orange-600 italic">休日・休暇</th>
-                            <td class="p-6 md:p-8 font-bold text-slate-800 text-lg leading-loose">
+                        <tr>
+                            <th>休日・休暇</th>
+                            <td class="font-bold text-slate-800 leading-loose">
                                 水曜午後・土曜午後、日曜、祝日、夏季、年末年始<br>
-                                <span class="bg-orange-100 text-orange-600 text-xs px-3 py-1 rounded-full font-black uppercase">年間休日しっかり確保</span>
+                                <span class="inline-block bg-orange-100 text-orange-600 text-xs px-3 py-1 rounded-full font-black uppercase mt-1">年間休日しっかり確保</span>
                             </td>
                         </tr>
                         <tr>
-                            <th class="p-6 md:p-8 bg-orange-50/50 table-header font-black text-orange-600 italic">待遇・福利厚生</th>
-                            <td class="p-6 md:p-8 font-medium text-slate-600 leading-loose">
-                                昇給年1回、賞与年2回、社会保険完備、交通費支給、制服貸与、<br>
-                                <span class="text-orange-500 font-bold">★当院規定による学会・講習会費用補助制度あり（キャリアアップを全力で支援します）</span>
+                            <th>待遇・福利厚生</th>
+                            <td class="leading-loose">
+                                昇給年1回、賞与年2回、社会保険完備、交通費支給、制服貸与<br>
+                                <span class="text-orange-500 font-bold">★学会・講習会費用補助制度あり（キャリアアップを全力で支援）</span>
                             </td>
                         </tr>
                     </tbody>
@@ -121,107 +200,117 @@
             </div>
         </div>
 
-        <h3 class="text-3xl font-black text-center mb-12 section-title italic uppercase tracking-widest">リハビリ助手　Rehab Assistant</h3>
-        <div class="glass overflow-hidden shadow-2xl mb-24 border-t-4 border-slate-900">
+        <!-- Rehab Assistant Section -->
+        <h3 class="text-2xl md:text-3xl font-black text-center mb-8 section-title italic uppercase tracking-widest">リハビリ助手　Rehab Assistant</h3>
+        <div class="glass overflow-hidden shadow-2xl mb-20 border-t-4 border-slate-900">
             <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
+                <table class="info-table">
                     <tbody>
-                        <tr class="border-b border-orange-50">
-                            <th class="p-6 md:p-8 bg-orange-50/50 table-header font-black text-orange-600 italic">募集人数</th>
-                            <td class="p-6 md:p-8 font-black text-xl text-slate-800">若干名</td>
+                        <tr>
+                            <th>募集人数</th>
+                            <td class="font-black text-xl text-slate-800">若干名</td>
                         </tr>
-                        <tr class="border-b border-orange-50">
-                            <th class="p-6 md:p-8 bg-orange-50/50 table-header font-black text-orange-600 italic">時期</th>
-                            <td class="p-6 md:p-8 font-bold text-slate-800">随時</td>
+                        <tr>
+                            <th>時期</th>
+                            <td class="font-bold text-slate-800">随時</td>
                         </tr>
-                        <tr class="border-b border-orange-50">
-                            <th class="p-6 md:p-8 bg-orange-50/50 table-header font-black text-orange-600 italic">雇用形態</th>
-                            <td class="p-6 md:p-8 font-bold text-lg text-slate-800">正社員（常勤） / パート</td>
+                        <tr>
+                            <th>雇用形態</th>
+                            <td class="font-bold text-lg text-slate-800">正社員（常勤） / パート</td>
                         </tr>
-                        <tr class="border-b border-orange-50">
-                            <th class="p-6 md:p-8 bg-orange-50/50 table-header font-black text-orange-600 italic">業務内容</th>
-                            <td class="p-6 md:p-8 leading-loose font-medium text-slate-600">
+                        <tr>
+                            <th>業務内容</th>
+                            <td>
                                 リハビリ受付、案内、物理療法等の治療の介助、清掃など。<br>
                                 患者様が安心して治療を受けられるよう、明るいサポートをお願いします。
                             </td>
                         </tr>
-                        <tr class="border-b border-orange-50">
-                            <th class="p-6 md:p-8 bg-orange-50/50 table-header font-black text-orange-600 italic">給与</th>
-                            <td class="p-6 md:p-8 font-bold text-slate-800 flex items-center gap-3">
-                                <i class="fa-solid fa-circle-info text-orange-500"></i>
-                                詳細については、下記メールフォームまたはお電話にてお問い合わせください。
+                        <tr>
+                            <th>給与</th>
+                            <td class="font-bold text-slate-800">
+                                <span class="inline-flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-info text-orange-500"></i>
+                                    下記メールまたはお電話にてお問い合わせください。
+                                </span>
                             </td>
                         </tr>
                         <tr>
-                            <th class="p-6 md:p-8 bg-orange-50/50 table-header font-black text-orange-600 italic">勤務時間</th>
-                            <td class="p-6 md:p-8 font-bold text-slate-800 text-lg">09:00 〜 12:30 / 15:00 〜 18:30</td>
+                            <th>勤務時間</th>
+                            <td class="font-bold text-slate-800 text-lg">09:00 〜 12:30 / 15:00 〜 18:30</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <h3 class="text-3xl font-black text-center mb-12 section-title italic uppercase tracking-widest">Location & Map</h3>
-        <div class="glass p-6 md:p-12 mb-24 shadow-2xl">
-            <div class="flex flex-col lg:flex-row gap-12">
-                <div class="lg:w-1/2 space-y-8">
-                    <div class="flex items-start gap-5">
-                        <div class="w-14 h-14 bg-orange-500 text-white rounded-2xl flex items-center justify-center shrink-0 shadow-lg">
-                            <i class="fa-solid fa-location-dot text-2xl"></i>
+        <!-- Location -->
+        <h3 class="text-2xl md:text-3xl font-black text-center mb-8 section-title italic uppercase tracking-widest">Location &amp; Map</h3>
+        <div class="glass p-5 md:p-12 mb-16 shadow-2xl">
+            <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+                <div class="lg:w-1/2 space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-orange-500 text-white rounded-2xl flex items-center justify-center shrink-0 shadow-lg">
+                            <i class="fa-solid fa-location-dot text-xl"></i>
                         </div>
                         <div>
-                            <p class="font-black text-2xl text-slate-900 mb-2">所在地</p>
-                            <p class="font-bold text-slate-600 leading-relaxed text-lg">
+                            <p class="font-black text-xl text-slate-900 mb-1">所在地</p>
+                            <p class="font-bold text-slate-600 leading-relaxed">
                                 〒230-0051<br>
-                                神奈川県横浜市鶴見区鶴見中央4-1-3 <br>
-                                矢上屋ビル 5F(受付), 6F(リハビリ)
+                                神奈川県横浜市鶴見区鶴見中央4-1-3<br>
+                                矢上屋ビル 5F（受付）/ 6F（リハビリ）
                             </p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-5">
-                        <div class="w-14 h-14 bg-slate-900 text-white rounded-2xl flex items-center justify-center shrink-0 shadow-lg">
-                            <i class="fa-solid fa-train text-2xl"></i>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-slate-900 text-white rounded-2xl flex items-center justify-center shrink-0 shadow-lg">
+                            <i class="fa-solid fa-train text-xl"></i>
                         </div>
                         <div>
-                            <p class="font-black text-2xl text-slate-900 mb-2">最寄り駅</p>
-                            <p class="font-bold text-slate-600 leading-relaxed text-lg">
-                                京急鶴見駅 東口より徒歩1分 <br>
+                            <p class="font-black text-xl text-slate-900 mb-1">最寄り駅</p>
+                            <p class="font-bold text-slate-600 leading-relaxed">
+                                京急鶴見駅 東口より徒歩1分<br>
                                 JR鶴見駅 東口より徒歩3分
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="lg:w-1/2 h-80 rounded-[40px] overflow-hidden shadow-inner border-4 border-white">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248.8351586523996!2d139.67873891154543!3d35.50346373977536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185f39e3f69b77%3A0x6d395a1219b1368b!2z575LiK5bGL44OT44Or!5e0!3m2!1sja!2sjp!4v1716300000000!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div class="lg:w-1/2 rounded-[30px] md:rounded-[40px] overflow-hidden shadow-inner border-4 border-white" style="height: 280px;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248.8351586523996!2d139.67873891154543!3d35.50346373977536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185f39e3f69b77%3A0x6d395a1219b1368b!2z575LiK5bGL44OT44Or!5e0!3m2!1sja!2sjp!4v1716300000000!5m2!1sja!2sjp"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
 
-        <div id="contact" class="text-center bg-slate-900 text-white rounded-[40px] md:rounded-[60px] p-8 md:p-20 shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 bg-orange-500/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-            <h4 class="text-3xl md:text-4xl font-black mb-8 md:mb-12 italic uppercase tracking-widest text-white">Apply & Inquiry</h4>
-            
-            <div class="flex flex-col items-center gap-6 mb-12">
-                <a href="tel:0455010708" class="w-full md:w-auto group flex items-center justify-center gap-4 bg-orange-500 text-white px-8 py-5 md:px-12 md:py-8 rounded-full font-black text-xl md:text-5xl shadow-2xl hover:bg-orange-400 transition transform hover:scale-105 btn-shadow">
+        <!-- Contact -->
+        <div id="contact" class="text-center bg-slate-900 text-white rounded-[30px] md:rounded-[60px] p-6 md:p-20 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-40 h-40 md:w-64 md:h-64 bg-orange-500/10 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+            <h4 class="text-2xl md:text-4xl font-black mb-8 md:mb-12 italic uppercase tracking-widest text-white">Apply &amp; Inquiry</h4>
+
+            <div class="flex flex-col items-center gap-5 mb-10">
+                <a href="tel:0455010708"
+                   class="w-full md:w-auto group flex items-center justify-center gap-3 bg-orange-500 text-white px-8 py-5 md:px-12 md:py-8 rounded-full font-black shadow-2xl hover:bg-orange-400 transition transform hover:scale-105 btn-shadow"
+                   style="font-size: clamp(1.2rem, 5vw, 2.25rem);">
                     <i class="fa-solid fa-phone"></i><span>045-501-0708</span>
                 </a>
-                <p class="text-orange-500 font-bold text-sm md:text-xl animate__animated animate__pulse animate__infinite">
-                    <i class="fa-solid fa-eye mr-2"></i>クリニック見学も随時受け付けております。<br class="md:hidden">まずはお気軽にお電話ください！
+                <p class="text-orange-400 font-bold text-sm md:text-xl animate__animated animate__pulse animate__infinite px-2">
+                    <i class="fa-solid fa-eye mr-2"></i>クリニック見学も随時受け付けております。<br>まずはお気軽にお電話ください！
                 </p>
             </div>
 
-            <button onclick="toggleForm()" id="form-btn" class="group inline-flex items-center gap-3 text-slate-400 hover:text-white transition font-black uppercase tracking-[0.2em] text-xs md:text-base mb-6">
-                <i class="fa-solid fa-envelope text-orange-500 text-base md:text-xl"></i><span id="btn-text">メールでお問い合わせ</span>
+            <button onclick="toggleForm()" id="form-btn"
+                    class="group inline-flex items-center gap-3 text-slate-400 hover:text-white transition font-black uppercase tracking-[0.2em] text-xs md:text-base mb-6">
+                <i class="fa-solid fa-envelope text-orange-500 text-base md:text-xl"></i>
+                <span id="btn-text">メールでお問い合わせ</span>
                 <i class="fa-solid fa-chevron-down transition-transform duration-500" id="chevron"></i>
             </button>
 
             <div id="contact-form-container" class="max-h-0 overflow-hidden transition-all duration-700 ease-in-out opacity-0">
-                <div class="max-w-2xl mx-auto mt-6 bg-white/5 p-6 md:p-14 rounded-[30px] border border-white/10 text-center backdrop-blur-md shadow-inner">
-                    <p class="text-slate-300 mb-8 font-bold text-sm md:text-lg">
+                <div class="max-w-2xl mx-auto mt-4 bg-white/5 p-5 md:p-14 rounded-[20px] md:rounded-[30px] border border-white/10 text-center backdrop-blur-md shadow-inner">
+                    <p class="text-slate-300 mb-6 font-bold text-sm md:text-lg">
                         見学のご希望や、採用に関するご質問は、<br>以下のボタンよりご連絡ください。
                     </p>
-                    <a href="mailto:sorujente.cl@gmail.com?subject=%E3%80%90%E6%B1%82%E4%BA%BA%E7%89%B9%E8%A8%AD%E3%80%91%E6%8E%A1%E7%94%A8%E3%83%BB%E8%A6%8B%E5%AD%A6%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B&body=%E3%82%BD%E3%83%AB%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%86%E6%95%B4%E5%BD%A2%E5%A4%96%E7%A7%91%20%E6%8E%A1%E7%94%A8%E6%8B%85%E5%BD%93%E8%80%85%E6%A7%98%0D%0A%0D%0A%E2%96%A0%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0D%0A%E2%96%A0%E5%B8%8C%E6%9C%9B%E8%81%B7%E7%A8%AE%EF%BC%9A%5B%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95%E5%A3%AB%20%2F%20%E3%83%AA%E3%83%8F%E3%83%93%E3%83%AA%E5%8A%A9%E6%89%8B%5D%0D%0A%E2%96%A0%E8%A6%8B%E5%AD%A6%E5%B8%8C%E6%9C%9B%EF%BC%9A%5B%E3%81%82%E3%82%8A%20%2F%20%E3%81%AA%E3%81%97%5D%0D%0A%E2%96%A0%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%EF%BC%9A" 
-                       class="w-full bg-white text-slate-900 py-5 rounded-2xl font-black uppercase text-center block hover:bg-orange-500 hover:text-white transition duration-500 shadow-2xl text-base md:text-xl">
+                    <a href="mailto:sorujente.cl@gmail.com?subject=%E3%80%90%E6%B1%82%E4%BA%BA%E7%89%B9%E8%A8%AD%E3%80%91%E6%8E%A1%E7%94%A8%E3%83%BB%E8%A6%8B%E5%AD%A6%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B&body=%E3%82%BD%E3%83%AB%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%86%E6%95%B4%E5%BD%A2%E5%A4%96%E7%A7%91%20%E6%8E%A1%E7%94%A8%E6%8B%85%E5%BD%93%E8%80%85%E6%A7%98%0D%0A%0D%0A%E2%96%A0%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0D%0A%E2%96%A0%E5%B8%8C%E6%9C%9B%E8%81%B7%E7%A8%AE%EF%BC%9A%5B%E7%90%86%E5%AD%A6%E7%99%82%E6%B3%95%E5%A3%AB%20%2F%20%E3%83%AA%E3%83%8F%E3%83%93%E3%83%AA%E5%8A%A9%E6%89%8B%5D%0D%0A%E2%96%A0%E8%A6%8B%E5%AD%A6%E5%B8%8C%E6%9C%9B%EF%BC%9A%5B%E3%81%82%E3%82%8A%20%2F%20%E3%81%AA%E3%81%97%5D%0D%0A%E2%96%A0%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%EF%BC%9A"
+                       class="block w-full bg-white text-slate-900 py-4 md:py-5 rounded-2xl font-black uppercase text-center hover:bg-orange-500 hover:text-white transition duration-500 shadow-2xl text-base md:text-xl">
                         メールソフトを起動して送信
                     </a>
                 </div>
@@ -230,7 +319,9 @@
         </div>
     </main>
 
-    <footer class="py-12 text-center text-slate-400 text-[10px] tracking-[0.4em] uppercase font-bold border-t border-slate-100">© 2026 Sorgente Orthopedics Clinic.</footer>
+    <footer class="py-10 text-center text-slate-400 text-[10px] tracking-[0.4em] uppercase font-bold border-t border-slate-100">
+        © 2026 Sorgente Orthopedics Clinic.
+    </footer>
 
     <script>
         function toggleForm() {
@@ -238,11 +329,15 @@
             const chevron = document.getElementById('chevron');
             const btnText = document.getElementById('btn-text');
             if (container.style.maxHeight === '0px' || container.style.maxHeight === '') {
-                container.style.maxHeight = container.scrollHeight + 'px'; container.style.opacity = '1';
-                chevron.style.transform = 'rotate(180deg)'; btnText.innerText = 'フォームを閉じる';
+                container.style.maxHeight = container.scrollHeight + 'px';
+                container.style.opacity = '1';
+                chevron.style.transform = 'rotate(180deg)';
+                btnText.innerText = 'フォームを閉じる';
             } else {
-                container.style.maxHeight = '0px'; container.style.opacity = '0';
-                chevron.style.transform = 'rotate(0deg)'; btnText.innerText = 'メールでお問い合わせ';
+                container.style.maxHeight = '0px';
+                container.style.opacity = '0';
+                chevron.style.transform = 'rotate(0deg)';
+                btnText.innerText = 'メールでお問い合わせ';
             }
         }
     </script>
